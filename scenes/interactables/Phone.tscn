@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/event_interactable.gd" id="1_fghpn"]
+[ext_resource type="Material" path="res://resources/materials/black_plastic.tres" id="2_g6q0m"]
+[ext_resource type="Material" path="res://resources/materials/ivory_plastic.tres" id="3_u03fg"]
+[ext_resource type="Material" path="res://resources/materials/book_red.tres" id="4_tee8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sq2d0"]
+size = Vector3(0.3, 0.18, 0.28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ysckr"]
+material = ExtResource("2_g6q0m")
+size = Vector3(0.22, 0.08, 0.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dgu1a"]
+material = ExtResource("3_u03fg")
+top_radius = 0.06
+bottom_radius = 0.06
+height = 0.01
+radial_segments = 16
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_5yfm1"]
+material = ExtResource("2_g6q0m")
+size = Vector3(0.24, 0.04, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xxwyk"]
+material = ExtResource("4_tee8q")
+size = Vector3(0.015, 0.015, 0.005)
+
+[node name="Phone" type="Area3D" unique_id=694134254]
+script = ExtResource("1_fghpn")
+prompt_key = "prompt.phone"
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=299851302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+shape = SubResource("BoxShape3D_sq2d0")
+
+[node name="Visual" type="Node3D" parent="." unique_id=890144483]
+
+[node name="Base" type="MeshInstance3D" parent="Visual" unique_id=1661189055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+mesh = SubResource("BoxMesh_ysckr")
+
+[node name="DialDisc" type="MeshInstance3D" parent="Visual" unique_id=1527558839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, 0.03)
+mesh = SubResource("CylinderMesh_dgu1a")
+
+[node name="Handset" type="MeshInstance3D" parent="Visual" unique_id=97140186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, -0.04)
+mesh = SubResource("BoxMesh_5yfm1")
+
+[node name="Lamp" type="MeshInstance3D" parent="Visual" unique_id=494766494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.06, 0.1)
+mesh = SubResource("BoxMesh_xxwyk")

@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/lighting/flicker_light.gd" id="1_ob2g7"]
+[ext_resource type="Material" path="res://resources/materials/cord.tres" id="2_babrw"]
+[ext_resource type="Material" path="res://resources/materials/black_plastic.tres" id="3_y5epy"]
+[ext_resource type="Material" path="res://resources/materials/bulb_warm.tres" id="4_c584c"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3ackk"]
+material = ExtResource("2_babrw")
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.55
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2j8dk"]
+material = ExtResource("3_y5epy")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.05
+radial_segments = 16
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_jql85"]
+material = ExtResource("4_c584c")
+radius = 0.04
+height = 0.08
+radial_segments = 12
+rings = 6
+
+[node name="BareBulb" type="OmniLight3D" unique_id=172429373]
+light_color = Color(1, 0.85, 0.65, 1)
+shadow_enabled = true
+script = ExtResource("1_ob2g7")
+emissive_mesh = NodePath("Bulb")
+
+[node name="Cord" type="MeshInstance3D" parent="." unique_id=1968500728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("CylinderMesh_3ackk")
+
+[node name="Socket" type="MeshInstance3D" parent="." unique_id=618355784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("CylinderMesh_2j8dk")
+
+[node name="Bulb" type="MeshInstance3D" parent="." unique_id=1236390460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_jql85")

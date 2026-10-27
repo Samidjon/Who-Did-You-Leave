@@ -1,0 +1,69 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="1_3t6ls"]
+[ext_resource type="Material" path="res://resources/materials/brass.tres" id="2_rjsr4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_itfmf"]
+material = ExtResource("1_3t6ls")
+size = Vector3(1.2, 0.04, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tgg7b"]
+material = ExtResource("1_3t6ls")
+size = Vector3(0.42, 0.72, 0.56)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4p8ws"]
+material = ExtResource("2_rjsr4")
+size = Vector3(0.1, 0.015, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qofhg"]
+material = ExtResource("2_rjsr4")
+size = Vector3(0.1, 0.015, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0jdr"]
+material = ExtResource("2_rjsr4")
+size = Vector3(0.1, 0.015, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7nj2b"]
+material = ExtResource("1_3t6ls")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ttj7"]
+material = ExtResource("1_3t6ls")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ditum"]
+size = Vector3(1.2, 0.76, 0.6)
+
+[node name="Desk" type="StaticBody3D" unique_id=2084338436]
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=1602522084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, 0)
+mesh = SubResource("BoxMesh_itfmf")
+
+[node name="Drawers" type="MeshInstance3D" parent="." unique_id=1220591605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.36, 0)
+mesh = SubResource("BoxMesh_tgg7b")
+
+[node name="Handle0" type="MeshInstance3D" parent="." unique_id=1075877440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.6, 0.285)
+mesh = SubResource("BoxMesh_4p8ws")
+
+[node name="Handle1" type="MeshInstance3D" parent="." unique_id=719681837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.38, 0.285)
+mesh = SubResource("BoxMesh_qofhg")
+
+[node name="Handle2" type="MeshInstance3D" parent="." unique_id=921924077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.16, 0.285)
+mesh = SubResource("BoxMesh_d0jdr")
+
+[node name="LegL1" type="MeshInstance3D" parent="." unique_id=197220420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56, 0.36, -0.26)
+mesh = SubResource("BoxMesh_7nj2b")
+
+[node name="LegL2" type="MeshInstance3D" parent="." unique_id=1394664511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56, 0.36, 0.26)
+mesh = SubResource("BoxMesh_1ttj7")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1012879093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
+shape = SubResource("BoxShape3D_ditum")

@@ -1,0 +1,60 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="1_uhlic"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1botb"]
+material = ExtResource("1_uhlic")
+size = Vector3(0.5, 0.03, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dpwnq"]
+material = ExtResource("1_uhlic")
+size = Vector3(0.46, 0.02, 0.36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1dyc"]
+material = ExtResource("1_uhlic")
+size = Vector3(0.03, 0.7, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8fytj"]
+material = ExtResource("1_uhlic")
+size = Vector3(0.03, 0.7, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_77drq"]
+material = ExtResource("1_uhlic")
+size = Vector3(0.03, 0.7, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_04xw5"]
+material = ExtResource("1_uhlic")
+size = Vector3(0.03, 0.7, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3l2ic"]
+size = Vector3(0.5, 0.72, 0.4)
+
+[node name="SmallTable" type="StaticBody3D" unique_id=259190154]
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=1204077476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("BoxMesh_1botb")
+
+[node name="Shelf" type="MeshInstance3D" parent="." unique_id=1577820860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_dpwnq")
+
+[node name="Leg0" type="MeshInstance3D" parent="." unique_id=1683899316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22, 0.35, -0.17)
+mesh = SubResource("BoxMesh_a1dyc")
+
+[node name="Leg1" type="MeshInstance3D" parent="." unique_id=1961357752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22, 0.35, -0.17)
+mesh = SubResource("BoxMesh_8fytj")
+
+[node name="Leg2" type="MeshInstance3D" parent="." unique_id=986324266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22, 0.35, 0.17)
+mesh = SubResource("BoxMesh_77drq")
+
+[node name="Leg3" type="MeshInstance3D" parent="." unique_id=1653042135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22, 0.35, 0.17)
+mesh = SubResource("BoxMesh_04xw5")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=431233906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36, 0)
+shape = SubResource("BoxShape3D_3l2ic")

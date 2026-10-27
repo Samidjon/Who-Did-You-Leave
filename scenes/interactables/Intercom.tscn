@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/event_interactable.gd" id="1_a4rxm"]
+[ext_resource type="Material" path="res://resources/materials/ivory_plastic.tres" id="2_km7mv"]
+[ext_resource type="Material" path="res://resources/materials/book_red.tres" id="3_1luri"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4w76d"]
+size = Vector3(0.24, 0.32, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ivv6r"]
+material = ExtResource("2_km7mv")
+size = Vector3(0.12, 0.24, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8neq0"]
+material = ExtResource("2_km7mv")
+size = Vector3(0.06, 0.22, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h1pfc"]
+material = ExtResource("3_1luri")
+size = Vector3(0.02, 0.02, 0.01)
+
+[node name="Intercom" type="Area3D" unique_id=1852962839]
+script = ExtResource("1_a4rxm")
+event_id = "intercom"
+prompt_key = "prompt.answer"
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=341845061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04)
+shape = SubResource("BoxShape3D_4w76d")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1868241301]
+
+[node name="Base" type="MeshInstance3D" parent="Visual" unique_id=2129524785]
+mesh = SubResource("BoxMesh_ivv6r")
+
+[node name="Handset" type="MeshInstance3D" parent="Visual" unique_id=152473610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+mesh = SubResource("BoxMesh_8neq0")
+
+[node name="Button" type="MeshInstance3D" parent="Visual" unique_id=1134419581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.017)
+mesh = SubResource("BoxMesh_h1pfc")

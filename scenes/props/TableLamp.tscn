@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/lighting/flicker_light.gd" id="1_3qc61"]
+[ext_resource type="Material" path="res://resources/materials/brass.tres" id="2_u0njw"]
+[ext_resource type="Material" path="res://resources/materials/lampshade.tres" id="3_nr8nv"]
+[ext_resource type="Material" path="res://resources/materials/bulb_warm.tres" id="4_63fac"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ghe1v"]
+material = ExtResource("2_u0njw")
+top_radius = 0.07
+bottom_radius = 0.09
+height = 0.03
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7b5sb"]
+material = ExtResource("2_u0njw")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.3
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xu2qw"]
+material = ExtResource("3_nr8nv")
+top_radius = 0.08
+bottom_radius = 0.14
+height = 0.16
+radial_segments = 16
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_w5fc8"]
+material = ExtResource("4_63fac")
+radius = 0.035
+height = 0.07
+radial_segments = 12
+rings = 6
+
+[node name="TableLamp" type="OmniLight3D" unique_id=1819303979]
+light_color = Color(1, 0.76, 0.5, 1)
+light_energy = 0.9
+shadow_enabled = true
+shadow_bias = 0.04
+omni_range = 4.0
+script = ExtResource("1_3qc61")
+emissive_mesh = NodePath("Bulb")
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=670697801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36, 0)
+mesh = SubResource("CylinderMesh_ghe1v")
+
+[node name="Stem" type="MeshInstance3D" parent="." unique_id=109377869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("CylinderMesh_7b5sb")
+
+[node name="Shade" type="MeshInstance3D" parent="." unique_id=1212699570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_xu2qw")
+
+[node name="Bulb" type="MeshInstance3D" parent="." unique_id=495960690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_w5fc8")

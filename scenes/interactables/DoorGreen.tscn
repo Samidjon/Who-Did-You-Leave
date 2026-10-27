@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dhgbs6crp4ak0"]
+
+[ext_resource type="Script" uid="uid://dvogtyu3ntpaq" path="res://scripts/interaction/door.gd" id="1_iaxm3"]
+[ext_resource type="Material" path="res://resources/materials/door_wood_green.tres" id="2_ba8lw"]
+[ext_resource type="Material" path="res://resources/materials/brass.tres" id="3_4mjb3"]
+[ext_resource type="Material" path="res://resources/materials/cord.tres" id="4_2hi1h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5e3e"]
+size = Vector3(0.96, 2.06, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksq52"]
+size = Vector3(0.92, 2.05, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6f4cs"]
+material = ExtResource("2_ba8lw")
+size = Vector3(0.99524903, 2.113147, 0.045)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sasp2"]
+material = ExtResource("2_ba8lw")
+size = Vector3(0.7, 0.8, 0.006)
+
+[sub_resource type="BoxMesh" id="BoxMesh_81s7b"]
+material = ExtResource("2_ba8lw")
+size = Vector3(0.7, 0.7, 0.006)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wqmkk"]
+material = ExtResource("2_ba8lw")
+size = Vector3(0.7, 0.8, 0.006)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aq26d"]
+material = ExtResource("2_ba8lw")
+size = Vector3(0.7, 0.7, 0.006)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vf2lt"]
+material = ExtResource("3_4mjb3")
+size = Vector3(0.12, 0.02, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3vt1r"]
+material = ExtResource("3_4mjb3")
+size = Vector3(0.04, 0.16, 0.008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ajpc"]
+material = ExtResource("3_4mjb3")
+size = Vector3(0.12, 0.02, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hsi13"]
+material = ExtResource("3_4mjb3")
+size = Vector3(0.04, 0.16, 0.008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mybn0"]
+material = ExtResource("4_2hi1h")
+size = Vector3(0.015, 0.03, 0.004)
+
+[node name="DoorGreen" type="Area3D" unique_id=572706924]
+script = ExtResource("1_iaxm3")
+
+[node name="InteractShape" type="CollisionShape3D" parent="." unique_id=1352926354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03, 0)
+shape = SubResource("BoxShape3D_s5e3e")
+
+[node name="Hinge" type="AnimatableBody3D" parent="." unique_id=1666234667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46, 0, 0)
+
+[node name="Col" type="CollisionShape3D" parent="Hinge" unique_id=1920193472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46, 1.025, 0)
+shape = SubResource("BoxShape3D_ksq52")
+
+[node name="Panel" type="Node3D" parent="Hinge" unique_id=1462089020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46, 1.025, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Hinge/Panel" unique_id=491660161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0028637797, 0.031573534, 0)
+mesh = SubResource("BoxMesh_6f4cs")
+
+[node name="InsetUp" type="MeshInstance3D" parent="Hinge/Panel" unique_id=732900006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.024)
+mesh = SubResource("BoxMesh_sasp2")
+
+[node name="InsetDn" type="MeshInstance3D" parent="Hinge/Panel" unique_id=2142636574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.024)
+mesh = SubResource("BoxMesh_81s7b")
+
+[node name="InsetUpB" type="MeshInstance3D" parent="Hinge/Panel" unique_id=2119378530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.024)
+mesh = SubResource("BoxMesh_wqmkk")
+
+[node name="InsetDnB" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1341381179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.024)
+mesh = SubResource("BoxMesh_aq26d")
+
+[node name="HandleF" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1719911015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, -0.02, 0.045)
+mesh = SubResource("BoxMesh_vf2lt")
+
+[node name="RoseF" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1841609384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, -0.02, 0.026)
+mesh = SubResource("BoxMesh_3vt1r")
+
+[node name="HandleB" type="MeshInstance3D" parent="Hinge/Panel" unique_id=780855925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, -0.02, -0.045)
+mesh = SubResource("BoxMesh_6ajpc")
+
+[node name="RoseB" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1959371146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, -0.02, -0.026)
+mesh = SubResource("BoxMesh_hsi13")
+
+[node name="Keyhole" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1682634961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, -0.12, 0.027)
+mesh = SubResource("BoxMesh_mybn0")

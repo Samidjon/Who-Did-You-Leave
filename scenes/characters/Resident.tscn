@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/characters/model_slot.gd" id="1_t6lm5"]
+[ext_resource type="Material" path="res://resources/materials/fabric_a.tres" id="2_m7mm4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v7i4o"]
+material = ExtResource("2_m7mm4")
+radius = 0.2
+height = 1.3416
+
+[sub_resource type="SphereMesh" id="SphereMesh_7y8ar"]
+material = ExtResource("2_m7mm4")
+radius = 0.11
+height = 0.22
+radial_segments = 12
+rings = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_xluph"]
+material = ExtResource("2_m7mm4")
+size = Vector3(0.46, 0.1, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bl7ds"]
+material = ExtResource("2_m7mm4")
+size = Vector3(0.08, 0.6, 0.09)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqx0m"]
+material = ExtResource("2_m7mm4")
+size = Vector3(0.08, 0.6, 0.09)
+
+[node name="Resident" type="Node3D" unique_id=1588992448]
+
+[node name="ModelSlot" type="Node3D" parent="." unique_id=1349790463]
+script = ExtResource("1_t6lm5")
+model_path = "res://assets/characters/residents/resident_base.glb"
+animation_names = PackedStringArray("idle", "walk", "turn", "reach", "startled", "talk")
+
+[node name="Placeholder" type="Node3D" parent="ModelSlot" unique_id=2104108141]
+
+[node name="Body" type="MeshInstance3D" parent="ModelSlot/Placeholder" unique_id=920397078]
+transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 0.7, 0, 0.7224, 0)
+mesh = SubResource("CapsuleMesh_v7i4o")
+
+[node name="Head" type="MeshInstance3D" parent="ModelSlot/Placeholder" unique_id=302493933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.548, 0)
+mesh = SubResource("SphereMesh_7y8ar")
+
+[node name="Shoulders" type="MeshInstance3D" parent="ModelSlot/Placeholder" unique_id=763233338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2728, 0)
+mesh = SubResource("BoxMesh_xluph")
+
+[node name="ArmL" type="MeshInstance3D" parent="ModelSlot/Placeholder" unique_id=447209467]
+transform = Transform3D(0.99875027, -0.04997917, 0, 0.04997917, 0.99875027, 0, 0, 0, 1, -0.24, 0.8944, 0)
+mesh = SubResource("BoxMesh_bl7ds")
+
+[node name="ArmR" type="MeshInstance3D" parent="ModelSlot/Placeholder" unique_id=698563219]
+transform = Transform3D(0.99875027, 0.04997917, 0, -0.04997917, 0.99875027, 0, 0, 0, 1, 0.24, 0.8944, 0)
+mesh = SubResource("BoxMesh_qqx0m")

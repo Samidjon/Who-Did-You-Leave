@@ -1,0 +1,51 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/game_ui.gd" id="1"]
+[ext_resource type="Shader" path="res://shaders/vhs.gdshader" id="2"]
+[ext_resource type="Script" path="res://scripts/ui/vhs_overlay.gd" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DocumentViewer.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/InspectViewer.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/ui/ChoicePanel.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Journal.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseMenu.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SettingsMenu.tscn" id="10"]
+
+[sub_resource type="ShaderMaterial" id="vhs_mat"]
+shader = ExtResource("2")
+shader_parameter/intensity = 0.55
+shader_parameter/glitch = 0.0
+
+[node name="GameUI" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+[node name="VHS" type="ColorRect" parent="."]
+material = SubResource("vhs_mat")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3")
+
+[node name="HUD" parent="." instance=ExtResource("4")]
+
+[node name="DocumentViewer" parent="." instance=ExtResource("5")]
+visible = false
+
+[node name="InspectViewer" parent="." instance=ExtResource("6")]
+visible = false
+
+[node name="ChoicePanel" parent="." instance=ExtResource("7")]
+visible = false
+
+[node name="Journal" parent="." instance=ExtResource("8")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("9")]
+visible = false
+
+[node name="SettingsMenu" parent="." instance=ExtResource("10")]
+visible = false

@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/readable.gd" id="1_o77t7"]
+[ext_resource type="Material" path="res://resources/materials/book_green.tres" id="2_5f7qj"]
+[ext_resource type="Material" path="res://resources/materials/paper_local.tres" id="3_sb7d3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idflf"]
+size = Vector3(0.3, 0.1, 0.36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tyvtg"]
+material = ExtResource("2_5f7qj")
+size = Vector3(0.22, 0.016, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0sp6h"]
+material = ExtResource("3_sb7d3")
+size = Vector3(0.21, 0.012, 0.29)
+
+[node name="Notebook" type="Area3D" unique_id=1004325241]
+script = ExtResource("1_o77t7")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=552361026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_idflf")
+
+[node name="Visual" type="Node3D" parent="." unique_id=704769757]
+
+[node name="Cover" type="MeshInstance3D" parent="Visual" unique_id=1000713205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008, 0)
+mesh = SubResource("BoxMesh_tyvtg")
+
+[node name="Pages" type="MeshInstance3D" parent="Visual" unique_id=423209016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.01, 0)
+mesh = SubResource("BoxMesh_0sp6h")

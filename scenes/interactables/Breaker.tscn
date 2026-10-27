@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/light_switch.gd" id="1_pfmia"]
+[ext_resource type="Material" path="res://resources/materials/metal_painted.tres" id="2_htsln"]
+[ext_resource type="Material" path="res://resources/materials/black_plastic.tres" id="3_0tamf"]
+[ext_resource type="Material" path="res://resources/materials/book_red.tres" id="4_perks"]
+[ext_resource type="FontFile" path="res://assets/fonts/DejaVuSans.ttf" id="5_ias5w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrmpp"]
+size = Vector3(0.3, 0.4, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_woxa7"]
+material = ExtResource("2_htsln")
+size = Vector3(0.5, 0.7, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_shsms"]
+material = ExtResource("3_0tamf")
+size = Vector3(0.04, 0.22, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_51ywb"]
+material = ExtResource("4_perks")
+size = Vector3(0.1, 0.04, 0.04)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bkkpk"]
+size = Vector3(0.5, 0.7, 0.16)
+
+[node name="Breaker" type="Area3D" unique_id=599436727]
+script = ExtResource("1_pfmia")
+start_on = false
+sound = "fuse"
+latch = true
+prompt_key = "prompt.breaker"
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=1090942905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0.1)
+shape = SubResource("BoxShape3D_mrmpp")
+
+[node name="Box" type="MeshInstance3D" parent="." unique_id=1409338067]
+mesh = SubResource("BoxMesh_woxa7")
+
+[node name="Lever" type="MeshInstance3D" parent="." unique_id=2091007160]
+transform = Transform3D(1, 0, 0, 0, 0.87758255, -0.47942555, 0, 0.47942555, 0.87758255, 0, -0.08, 0.12)
+mesh = SubResource("BoxMesh_shsms")
+
+[node name="Knob" type="MeshInstance3D" parent="." unique_id=1397227752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0.17)
+mesh = SubResource("BoxMesh_51ywb")
+
+[node name="Sign" type="Label3D" parent="." unique_id=175241327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.085)
+pixel_size = 0.0018
+shaded = true
+modulate = Color(0.85, 0.8, 0.7, 1)
+text = "ЩИТ ЛЕСТНИЦЫ"
+font = ExtResource("5_ias5w")
+font_size = 30
+outline_size = 0
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=605065934]
+
+[node name="Col" type="CollisionShape3D" parent="Body" unique_id=443396073]
+shape = SubResource("BoxShape3D_bkkpk")

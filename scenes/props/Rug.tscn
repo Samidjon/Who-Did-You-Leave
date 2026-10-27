@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/fabric_a.tres" id="1_fg3uk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2fx66"]
+material = ExtResource("1_fg3uk")
+size = Vector3(2, 0.01, 1.4)
+
+[node name="Rug" type="Node3D" unique_id=1456611283]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=205317615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
+mesh = SubResource("BoxMesh_2fx66")

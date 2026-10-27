@@ -1,0 +1,132 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/door.gd" id="1_hc4en"]
+[ext_resource type="Material" path="res://resources/materials/metal_rust.tres" id="2_35vvu"]
+[ext_resource type="Material" path="res://resources/materials/brass.tres" id="3_yc2rh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_df0oa"]
+size = Vector3(0.95, 2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68qj5"]
+size = Vector3(0.93, 2, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8pfn"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.93, 0.04, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pxic8"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.93, 0.04, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_48tql"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.93, 0.03, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5hkgc"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2g77g"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_33a02"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_djulo"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lj4fp"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1al0"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_katvc"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i1ivb"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mq7ak"]
+material = ExtResource("2_35vvu")
+size = Vector3(0.02, 2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i85jq"]
+material = ExtResource("3_yc2rh")
+size = Vector3(0.06, 0.08, 0.03)
+
+[node name="DoorGrate" type="Area3D" unique_id=1572031747]
+script = ExtResource("1_hc4en")
+sound_open = "grate_open"
+sound_close = "door_locked"
+
+[node name="InteractShape" type="CollisionShape3D" parent="." unique_id=1775509083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_df0oa")
+
+[node name="Hinge" type="AnimatableBody3D" parent="." unique_id=252279869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, 0, 0)
+
+[node name="Col" type="CollisionShape3D" parent="Hinge" unique_id=2121203155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475, 1.2, 0)
+shape = SubResource("BoxShape3D_68qj5")
+
+[node name="Panel" type="Node3D" parent="Hinge" unique_id=998436007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475, 1.2, 0)
+
+[node name="FrameT" type="MeshInstance3D" parent="Hinge/Panel" unique_id=2105240628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98, 0)
+mesh = SubResource("BoxMesh_u8pfn")
+
+[node name="FrameB" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1184009598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.98, 0)
+mesh = SubResource("BoxMesh_pxic8")
+
+[node name="FrameM" type="MeshInstance3D" parent="Hinge/Panel" unique_id=908301833]
+mesh = SubResource("BoxMesh_48tql")
+
+[node name="Bar0" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1018749538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, 0, 0)
+mesh = SubResource("BoxMesh_5hkgc")
+
+[node name="Bar1" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1159968289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, 0, 0)
+mesh = SubResource("BoxMesh_2g77g")
+
+[node name="Bar2" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1328667423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22, 0, 0)
+mesh = SubResource("BoxMesh_33a02")
+
+[node name="Bar3" type="MeshInstance3D" parent="Hinge/Panel" unique_id=377748794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0, 0)
+mesh = SubResource("BoxMesh_djulo")
+
+[node name="Bar4" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1709622531]
+mesh = SubResource("BoxMesh_lj4fp")
+
+[node name="Bar5" type="MeshInstance3D" parent="Hinge/Panel" unique_id=2133047260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11, 0, 0)
+mesh = SubResource("BoxMesh_s1al0")
+
+[node name="Bar6" type="MeshInstance3D" parent="Hinge/Panel" unique_id=636350512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22, 0, 0)
+mesh = SubResource("BoxMesh_katvc")
+
+[node name="Bar7" type="MeshInstance3D" parent="Hinge/Panel" unique_id=1417027529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, 0, 0)
+mesh = SubResource("BoxMesh_i1ivb")
+
+[node name="Bar8" type="MeshInstance3D" parent="Hinge/Panel" unique_id=827845667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 0)
+mesh = SubResource("BoxMesh_mq7ak")
+
+[node name="Padlock" type="MeshInstance3D" parent="Hinge/Panel" unique_id=649796822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 0, 0.05)
+mesh = SubResource("BoxMesh_i85jq")

@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gfjak"]
+[ext_resource type="Script" path="res://scripts/characters/model_slot.gd" id="2_4kuee"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_524rm"]
+radius = 0.3
+height = 1.75
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tpg5x"]
+radius = 0.27
+
+[node name="Player" type="CharacterBody3D" unique_id=7423199]
+collision_layer = 2
+script = ExtResource("1_gfjak")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=355083089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_524rm")
+
+[node name="Head" type="Node3D" parent="." unique_id=1695039418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63, 0)
+
+[node name="Camera" type="Camera3D" parent="Head" unique_id=1196503808]
+current = true
+fov = 72.0
+near = 0.04
+far = 80.0
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera" unique_id=1354226858]
+target_position = Vector3(0, 0, -2.1)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="Flashlight" type="SpotLight3D" parent="Head/Camera" unique_id=234837331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.12, 0.05)
+light_color = Color(0.97, 0.93, 0.82, 1)
+light_energy = 2.6
+light_volumetric_fog_energy = 0.5
+shadow_enabled = true
+shadow_bias = 0.04
+spot_range = 15.0
+spot_attenuation = 0.9
+spot_angle = 27.0
+spot_angle_attenuation = 1.6
+
+[node name="HandsSlot" type="Node3D" parent="Head/Camera" unique_id=263086166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -0.2)
+script = ExtResource("2_4kuee")
+model_path = "res://assets/characters/player/fp_arms.glb"
+animation_names = PackedStringArray("idle", "walk", "turn", "reach", "startled", "talk")
+
+[node name="BodySlot" type="Node3D" parent="." unique_id=1645949032]
+visible = false
+script = ExtResource("2_4kuee")
+model_path = "res://assets/characters/player/player_body.glb"
+animation_names = PackedStringArray("idle", "walk", "turn", "reach", "startled", "talk")
+
+[node name="CeilingCheck" type="ShapeCast3D" parent="." unique_id=665307462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_tpg5x")
+target_position = Vector3(0, 0.78, 0)

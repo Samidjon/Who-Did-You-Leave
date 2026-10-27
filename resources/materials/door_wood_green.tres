@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/door_wood_green.png" id="1_nydpv"]
+
+[resource]
+resource_name = "door_wood_green"
+albedo_texture = ExtResource("1_nydpv")
+roughness = 0.65
+uv1_triplanar = true
+texture_filter = 5

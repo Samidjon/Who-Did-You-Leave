@@ -1,0 +1,12 @@
+res://scenes/interactables/DoorGreen.tscn
+res://scenes/interactables/Photo.tscn
+res://scenes/interactables/Radio.tscn
+res://scenes/props/Chair.tscn
+res://scenes/props/Radiator.tscn
+res://scenes/props/Table.tscn
+res://scenes/props/TableLamp.tscn
+res://scenes/props/Window.tscn
+res://tools/build_scenes.gd
+res://tools/test_runner.gd
+res://scenes/levels/Game.tscn
+res://scenes/interactables/Door.tscn

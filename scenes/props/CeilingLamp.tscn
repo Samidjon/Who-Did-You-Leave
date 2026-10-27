@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/lighting/flicker_light.gd" id="1_fqqig"]
+[ext_resource type="Material" path="res://resources/materials/cord.tres" id="2_ysacr"]
+[ext_resource type="Material" path="res://resources/materials/lampshade.tres" id="3_1u1ep"]
+[ext_resource type="Material" path="res://resources/materials/bulb_warm.tres" id="4_xidra"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hyvra"]
+material = ExtResource("2_ysacr")
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.3
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_10lm6"]
+material = ExtResource("3_1u1ep")
+top_radius = 0.04
+bottom_radius = 0.2
+height = 0.14
+radial_segments = 16
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_x31mp"]
+material = ExtResource("4_xidra")
+radius = 0.045
+height = 0.09
+radial_segments = 12
+rings = 6
+
+[node name="CeilingLamp" type="OmniLight3D" unique_id=1359292159]
+light_color = Color(1, 0.8, 0.58, 1)
+light_energy = 1.3
+shadow_enabled = true
+shadow_bias = 0.05
+omni_range = 6.0
+omni_attenuation = 1.2
+script = ExtResource("1_fqqig")
+emissive_mesh = NodePath("Bulb")
+
+[node name="Cord" type="MeshInstance3D" parent="." unique_id=2022682124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("CylinderMesh_hyvra")
+
+[node name="Shade" type="MeshInstance3D" parent="." unique_id=246482987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_10lm6")
+
+[node name="Bulb" type="MeshInstance3D" parent="." unique_id=855285255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_x31mp")

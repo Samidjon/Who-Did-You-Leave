@@ -1,0 +1,61 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="1_sslsb"]
+[ext_resource type="Material" path="res://resources/materials/fabric_b.tres" id="2_1r28g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2f7xg"]
+material = ExtResource("1_sslsb")
+size = Vector3(1.2, 0.04, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mxsok"]
+material = ExtResource("1_sslsb")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j88ew"]
+material = ExtResource("1_sslsb")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lgr8u"]
+material = ExtResource("1_sslsb")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d8i8g"]
+material = ExtResource("1_sslsb")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s8sk7"]
+material = ExtResource("2_1r28g")
+size = Vector3(0.9, 0.006, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q0uq7"]
+size = Vector3(1.2, 0.76, 0.8)
+
+[node name="Table" type="StaticBody3D" unique_id=117493851]
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=244780336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, 0)
+mesh = SubResource("BoxMesh_2f7xg")
+
+[node name="Leg0" type="MeshInstance3D" parent="." unique_id=1326623414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54, 0.36, -0.34)
+mesh = SubResource("BoxMesh_mxsok")
+
+[node name="Leg1" type="MeshInstance3D" parent="." unique_id=534025101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54, 0.36, -0.34)
+mesh = SubResource("BoxMesh_j88ew")
+
+[node name="Leg2" type="MeshInstance3D" parent="." unique_id=468079707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54, 0.36, 0.34)
+mesh = SubResource("BoxMesh_lgr8u")
+
+[node name="Leg3" type="MeshInstance3D" parent="." unique_id=1455346519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54, 0.36, 0.34)
+mesh = SubResource("BoxMesh_d8i8g")
+
+[node name="Cloth" type="MeshInstance3D" parent="." unique_id=1671562358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.765, 0)
+mesh = SubResource("BoxMesh_s8sk7")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=508130738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
+shape = SubResource("BoxShape3D_q0uq7")

@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/inspectable.gd" id="1_3jkhv"]
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="2_omjg1"]
+[ext_resource type="Material" path="res://resources/materials/photo_portrait.tres" id="3_jm66u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sel6t"]
+size = Vector3(0.24, 0.3, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_noxj8"]
+material = ExtResource("2_omjg1")
+size = Vector3(0.2, 0.26, 0.015)
+
+[sub_resource type="QuadMesh" id="QuadMesh_h2b12"]
+material = ExtResource("3_jm66u")
+size = Vector2(0.17, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j7qnp"]
+material = ExtResource("2_omjg1")
+size = Vector3(0.03, 0.2, 0.01)
+
+[node name="PhotoStand" type="Area3D" unique_id=1159047321]
+script = ExtResource("1_3jkhv")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=803425881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0)
+shape = SubResource("BoxShape3D_sel6t")
+
+[node name="Visual" type="Node3D" parent="." unique_id=989294382]
+
+[node name="Frame" type="MeshInstance3D" parent="Visual" unique_id=1191481428]
+transform = Transform3D(1, 0, 0, 0, 0.9887711, 0.14943814, 0, -0.14943814, 0.9887711, 0, 0.13, 0)
+mesh = SubResource("BoxMesh_noxj8")
+
+[node name="Picture" type="MeshInstance3D" parent="Visual" unique_id=1323852621]
+transform = Transform3D(1, 0, 0, 0, 0.9887711, 0.14943814, 0, -0.14943814, 0.9887711, 0, 0.13, 0.009)
+mesh = SubResource("QuadMesh_h2b12")
+
+[node name="Leg" type="MeshInstance3D" parent="Visual" unique_id=1673710807]
+transform = Transform3D(1, 0, 0, 0, 0.921061, -0.38941833, 0, 0.38941833, 0.921061, 0, 0.1, -0.05)
+mesh = SubResource("BoxMesh_j7qnp")

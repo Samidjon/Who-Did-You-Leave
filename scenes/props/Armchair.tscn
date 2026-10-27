@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/fabric_a.tres" id="1_rktvl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggyjc"]
+material = ExtResource("1_rktvl")
+size = Vector3(0.8, 0.3, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_phr4q"]
+material = ExtResource("1_rktvl")
+size = Vector3(0.8, 0.7, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fv7m3"]
+material = ExtResource("1_rktvl")
+size = Vector3(0.12, 0.2, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rb3st"]
+material = ExtResource("1_rktvl")
+size = Vector3(0.12, 0.2, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdnpv"]
+size = Vector3(0.8, 1, 0.8)
+
+[node name="Armchair" type="StaticBody3D" unique_id=1309911216]
+
+[node name="Seat" type="MeshInstance3D" parent="." unique_id=856796152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_ggyjc")
+
+[node name="Back" type="MeshInstance3D" parent="." unique_id=1391749327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0.32)
+mesh = SubResource("BoxMesh_phr4q")
+
+[node name="ArmL" type="MeshInstance3D" parent="." unique_id=863669119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0.52, 0)
+mesh = SubResource("BoxMesh_fv7m3")
+
+[node name="ArmR" type="MeshInstance3D" parent="." unique_id=94506037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0.52, 0)
+mesh = SubResource("BoxMesh_rb3st")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=95299157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_pdnpv")

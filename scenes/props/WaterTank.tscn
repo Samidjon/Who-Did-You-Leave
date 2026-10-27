@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/metal_rust.tres" id="1_qq0l0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5sfx4"]
+material = ExtResource("1_qq0l0")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.6
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r7lbf"]
+material = ExtResource("1_qq0l0")
+top_radius = 0.04
+bottom_radius = 0.04
+height = 1.0
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bq4iv"]
+height = 1.6
+radius = 0.3
+
+[node name="WaterTank" type="StaticBody3D" unique_id=1651102302]
+
+[node name="Tank" type="MeshInstance3D" parent="." unique_id=1263729457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CylinderMesh_5sfx4")
+
+[node name="Pipe" type="MeshInstance3D" parent="." unique_id=226131689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("CylinderMesh_r7lbf")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1058829117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_bq4iv")

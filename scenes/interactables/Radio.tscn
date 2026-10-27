@@ -1,0 +1,69 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/event_interactable.gd" id="1_jlr6g"]
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="2_3y66i"]
+[ext_resource type="Material" path="res://resources/materials/fabric_b.tres" id="3_72ome"]
+[ext_resource type="Material" path="res://resources/materials/ivory_plastic.tres" id="4_kmctx"]
+[ext_resource type="Material" path="res://resources/materials/black_plastic.tres" id="5_y342x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oolus"]
+size = Vector3(0.5, 0.34, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h3m6b"]
+material = ExtResource("2_3y66i")
+size = Vector3(0.45, 0.28, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eeg6f"]
+material = ExtResource("3_72ome")
+size = Vector3(0.24, 0.2, 0.004)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qy7x5"]
+material = ExtResource("4_kmctx")
+size = Vector3(0.11, 0.08, 0.004)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r0lm3"]
+material = ExtResource("5_y342x")
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.02
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_63l46"]
+material = ExtResource("5_y342x")
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.02
+radial_segments = 16
+rings = 1
+
+[node name="Radio" type="Area3D" unique_id=1491761505]
+script = ExtResource("1_jlr6g")
+event_id = "radio"
+prompt_key = "prompt.radio"
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=472715097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0.02)
+shape = SubResource("BoxShape3D_oolus")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1392666878]
+
+[node name="Case" type="MeshInstance3D" parent="Visual" unique_id=2124509814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, 0)
+mesh = SubResource("BoxMesh_h3m6b")
+
+[node name="Cloth" type="MeshInstance3D" parent="Visual" unique_id=1851689681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0.15, 0.111)
+mesh = SubResource("BoxMesh_eeg6f")
+
+[node name="Dial" type="MeshInstance3D" parent="Visual" unique_id=754789976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.18, 0.111)
+mesh = SubResource("BoxMesh_qy7x5")
+
+[node name="Knob1" type="MeshInstance3D" parent="Visual" unique_id=1180858036]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.11, 0.07, 0.12)
+mesh = SubResource("CylinderMesh_r0lm3")
+
+[node name="Knob2" type="MeshInstance3D" parent="Visual" unique_id=939315319]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.17, 0.07, 0.12)
+mesh = SubResource("CylinderMesh_63l46")

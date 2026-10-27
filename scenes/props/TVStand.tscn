@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="1_2cwkr"]
+[ext_resource type="Material" path="res://resources/materials/black_plastic.tres" id="2_2502p"]
+[ext_resource type="Material" path="res://resources/materials/screen.tres" id="3_ipaqw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vri8p"]
+material = ExtResource("1_2cwkr")
+size = Vector3(0.8, 0.6, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_203m7"]
+material = ExtResource("2_2502p")
+size = Vector3(0.6, 0.5, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wdv74"]
+material = ExtResource("3_ipaqw")
+size = Vector3(0.42, 0.34, 0.005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2wh5"]
+size = Vector3(0.8, 1.1, 0.45)
+
+[node name="TVStand" type="StaticBody3D" unique_id=2043169325]
+
+[node name="Stand" type="MeshInstance3D" parent="." unique_id=1245610643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_vri8p")
+
+[node name="TV" type="MeshInstance3D" parent="." unique_id=2015990938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+mesh = SubResource("BoxMesh_203m7")
+
+[node name="Screen" type="MeshInstance3D" parent="." unique_id=1426735410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0.86, 0.226)
+mesh = SubResource("BoxMesh_wdv74")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1115996242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("BoxShape3D_w2wh5")

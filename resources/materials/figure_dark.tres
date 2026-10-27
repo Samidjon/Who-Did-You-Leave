@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "figure_dark"
+albedo_color = Color(0.025, 0.025, 0.03, 1)

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/ceiling.png" id="1_v3xtd"]
+
+[resource]
+resource_name = "ceiling"
+albedo_color = Color(0.8, 0.8, 0.78, 1)
+albedo_texture = ExtResource("1_v3xtd")
+roughness = 0.9
+uv1_scale = Vector3(0.45, 0.45, 0.45)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

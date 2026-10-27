@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/event_interactable.gd" id="1_yhpkh"]
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="2_74fp5"]
+[ext_resource type="Material" path="res://resources/materials/paper_local.tres" id="3_3js4u"]
+[ext_resource type="Material" path="res://resources/materials/cord.tres" id="4_s2ic5"]
+[ext_resource type="Material" path="res://resources/materials/black_plastic.tres" id="5_h42lq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf0n2"]
+size = Vector3(0.7, 0.2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_es2q7"]
+size = Vector3(1.1, 0.76, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s8dky"]
+material = ExtResource("2_74fp5")
+size = Vector3(1.1, 0.04, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ss4ol"]
+material = ExtResource("2_74fp5")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hvqe3"]
+material = ExtResource("2_74fp5")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8yi4b"]
+material = ExtResource("2_74fp5")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g2vgu"]
+material = ExtResource("2_74fp5")
+size = Vector3(0.05, 0.72, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_txf17"]
+material = ExtResource("3_3js4u")
+size = Vector3(0.21, 0.003, 0.29)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cld23"]
+material = ExtResource("4_s2ic5")
+size = Vector3(0.1, 0.001, 0.012)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gaexj"]
+material = ExtResource("5_h42lq")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.14
+radial_segments = 16
+rings = 1
+
+[node name="WritingDesk" type="Area3D" unique_id=588690180]
+script = ExtResource("1_yhpkh")
+event_id = "desk"
+prompt_key = "prompt.write"
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=2139925563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82, 0.1)
+shape = SubResource("BoxShape3D_wf0n2")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=605798579]
+
+[node name="Col" type="CollisionShape3D" parent="Body" unique_id=2141874100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
+shape = SubResource("BoxShape3D_es2q7")
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=670450064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, 0)
+mesh = SubResource("BoxMesh_s8dky")
+
+[node name="Leg0" type="MeshInstance3D" parent="." unique_id=2138642693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.36, -0.26)
+mesh = SubResource("BoxMesh_ss4ol")
+
+[node name="Leg1" type="MeshInstance3D" parent="." unique_id=287467143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.36, -0.26)
+mesh = SubResource("BoxMesh_hvqe3")
+
+[node name="Leg2" type="MeshInstance3D" parent="." unique_id=201245344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.36, 0.26)
+mesh = SubResource("BoxMesh_8yi4b")
+
+[node name="Leg3" type="MeshInstance3D" parent="." unique_id=786125881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.36, 0.26)
+mesh = SubResource("BoxMesh_g2vgu")
+
+[node name="Form" type="MeshInstance3D" parent="." unique_id=1691559224]
+transform = Transform3D(0.9950042, 0, 0.09983342, 0, 1, 0, -0.09983342, 0, 0.9950042, 0, 0.762, 0.08)
+mesh = SubResource("BoxMesh_txf17")
+
+[node name="FormHeader" type="MeshInstance3D" parent="." unique_id=1220399886]
+transform = Transform3D(0.9950042, 0, 0.09983342, 0, 1, 0, -0.09983342, 0, 0.9950042, 0, 0.764, -0.02)
+mesh = SubResource("BoxMesh_cld23")
+
+[node name="Pen" type="MeshInstance3D" parent="." unique_id=1303549149]
+transform = Transform3D(0.8253356, -0.5646425, 0, -2.4681308e-08, -3.6076568e-08, -1, 0.5646425, 0.8253356, -4.371139e-08, 0.18, 0.765, 0.1)
+mesh = SubResource("CylinderMesh_gaexj")

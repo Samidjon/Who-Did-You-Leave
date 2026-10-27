@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/photo_portrait.png" id="1_wvbbn"]
+
+[resource]
+resource_name = "photo_portrait"
+albedo_texture = ExtResource("1_wvbbn")
+roughness = 0.5
+texture_filter = 5

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/window_night.png" id="1_r62l3"]
+
+[resource]
+resource_name = "window_night"
+albedo_texture = ExtResource("1_r62l3")
+roughness = 0.1
+emission_enabled = true
+emission_energy_multiplier = 1.4
+emission_texture = ExtResource("1_r62l3")

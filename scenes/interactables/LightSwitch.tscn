@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/light_switch.gd" id="1_oavbs"]
+[ext_resource type="Material" path="res://resources/materials/ivory_plastic.tres" id="2_uc31b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3ykq"]
+size = Vector3(0.16, 0.2, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l8f6y"]
+material = ExtResource("2_uc31b")
+size = Vector3(0.08, 0.12, 0.012)
+
+[sub_resource type="BoxMesh" id="BoxMesh_66exu"]
+material = ExtResource("2_uc31b")
+size = Vector3(0.03, 0.05, 0.012)
+
+[node name="LightSwitch" type="Area3D" unique_id=1710502200]
+script = ExtResource("1_oavbs")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=409888092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+shape = SubResource("BoxShape3D_k3ykq")
+
+[node name="Plate" type="MeshInstance3D" parent="." unique_id=749745009]
+mesh = SubResource("BoxMesh_l8f6y")
+
+[node name="Toggle" type="MeshInstance3D" parent="." unique_id=1369303381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+mesh = SubResource("BoxMesh_66exu")

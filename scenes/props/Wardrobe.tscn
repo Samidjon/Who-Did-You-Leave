@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="1_2ncqb"]
+[ext_resource type="Material" path="res://resources/materials/cord.tres" id="2_sgdsq"]
+[ext_resource type="Material" path="res://resources/materials/brass.tres" id="3_s04s3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttq1i"]
+material = ExtResource("1_2ncqb")
+size = Vector3(1, 2, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_il6o7"]
+material = ExtResource("2_sgdsq")
+size = Vector3(0.01, 1.9, 0.005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c2ncb"]
+material = ExtResource("3_s04s3")
+size = Vector3(0.015, 0.12, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o3kdc"]
+material = ExtResource("3_s04s3")
+size = Vector3(0.015, 0.12, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6tm3"]
+material = ExtResource("1_2ncqb")
+size = Vector3(1.04, 0.04, 0.64)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ntj2a"]
+size = Vector3(1, 2, 0.6)
+
+[node name="Wardrobe" type="StaticBody3D" unique_id=2132467449]
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1461834458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ttq1i")
+
+[node name="Split" type="MeshInstance3D" parent="." unique_id=1648800617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.301)
+mesh = SubResource("BoxMesh_il6o7")
+
+[node name="HandleL" type="MeshInstance3D" parent="." unique_id=21693570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 1.05, 0.31)
+mesh = SubResource("BoxMesh_c2ncb")
+
+[node name="HandleR" type="MeshInstance3D" parent="." unique_id=618818307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 1.05, 0.31)
+mesh = SubResource("BoxMesh_o3kdc")
+
+[node name="Cornice" type="MeshInstance3D" parent="." unique_id=1940388418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02, 0.01)
+mesh = SubResource("BoxMesh_d6tm3")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=367638868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_ntj2a")

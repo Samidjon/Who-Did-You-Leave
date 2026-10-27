@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/metal_painted.tres" id="1_dcxk1"]
+[ext_resource type="Material" path="res://resources/materials/metal_rust.tres" id="2_kmu7q"]
+[ext_resource type="FontFile" path="res://assets/fonts/DejaVuSans.ttf" id="3_uw5m8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hyrkd"]
+material = ExtResource("1_dcxk1")
+size = Vector3(0.5, 0.7, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y452h"]
+material = ExtResource("2_kmu7q")
+size = Vector3(0.36, 0.6, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72on3"]
+size = Vector3(0.5, 0.7, 0.16)
+
+[node name="ElectricPanel" type="StaticBody3D" unique_id=1270407045]
+
+[node name="Box" type="MeshInstance3D" parent="." unique_id=274670314]
+mesh = SubResource("BoxMesh_hyrkd")
+
+[node name="Door" type="MeshInstance3D" parent="." unique_id=1280341935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0.082)
+mesh = SubResource("BoxMesh_y452h")
+
+[node name="Sign" type="Label3D" parent="." unique_id=1591112507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.09)
+pixel_size = 0.0018
+shaded = true
+modulate = Color(0.75, 0.2, 0.1, 1)
+text = "⚡ 380 В"
+font = ExtResource("3_uw5m8")
+font_size = 36
+outline_size = 0
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=1936697100]
+shape = SubResource("BoxShape3D_72on3")

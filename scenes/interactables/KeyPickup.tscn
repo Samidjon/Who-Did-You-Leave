@@ -1,0 +1,52 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/key_pickup.gd" id="1_pbdux"]
+[ext_resource type="Material" path="res://resources/materials/brass.tres" id="2_hb44k"]
+[ext_resource type="Material" path="res://resources/materials/enamel.tres" id="3_l0055"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_heusl"]
+size = Vector3(0.18, 0.18, 0.12)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b4jdj"]
+material = ExtResource("2_hb44k")
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.006
+radial_segments = 16
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_dukfi"]
+material = ExtResource("2_hb44k")
+size = Vector3(0.008, 0.07, 0.004)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0quxt"]
+material = ExtResource("2_hb44k")
+size = Vector3(0.014, 0.012, 0.004)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t0non"]
+material = ExtResource("3_l0055")
+size = Vector3(0.03, 0.04, 0.003)
+
+[node name="KeyPickup" type="Area3D" unique_id=2143072795]
+script = ExtResource("1_pbdux")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=1109039733]
+shape = SubResource("BoxShape3D_heusl")
+
+[node name="Visual" type="Node3D" parent="." unique_id=601991868]
+
+[node name="Ring" type="MeshInstance3D" parent="Visual" unique_id=1983341513]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.03, 0)
+mesh = SubResource("CylinderMesh_b4jdj")
+
+[node name="Shaft" type="MeshInstance3D" parent="Visual" unique_id=308523035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+mesh = SubResource("BoxMesh_dukfi")
+
+[node name="Bit" type="MeshInstance3D" parent="Visual" unique_id=1754308762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008, -0.05, 0)
+mesh = SubResource("BoxMesh_0quxt")
+
+[node name="Tag" type="MeshInstance3D" parent="Visual" unique_id=1446657833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.065, 0)
+mesh = SubResource("BoxMesh_t0non")

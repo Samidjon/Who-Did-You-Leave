@@ -1,0 +1,50 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interaction/event_interactable.gd" id="1_oqtfd"]
+[ext_resource type="Material" path="res://resources/materials/metal_painted.tres" id="2_4gvbe"]
+[ext_resource type="Material" path="res://resources/materials/steel.tres" id="3_qg08b"]
+[ext_resource type="Material" path="res://resources/materials/window_night.tres" id="4_5s2un"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1hkg"]
+size = Vector3(1.1, 2.1, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gs5u2"]
+material = ExtResource("2_4gvbe")
+size = Vector3(1, 2.1, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4n0wr"]
+material = ExtResource("3_qg08b")
+size = Vector3(0.08, 0.3, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4jfjq"]
+material = ExtResource("3_qg08b")
+size = Vector3(0.7, 0.04, 0.04)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nkaeo"]
+material = ExtResource("4_5s2un")
+size = Vector2(0.5, 0.3)
+
+[node name="ExitDoor" type="Area3D" unique_id=1906497073]
+script = ExtResource("1_oqtfd")
+event_id = "exit"
+prompt_key = "prompt.leave"
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=617882406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0.08)
+shape = SubResource("BoxShape3D_q1hkg")
+
+[node name="Leaf" type="MeshInstance3D" parent="." unique_id=531441612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+mesh = SubResource("BoxMesh_gs5u2")
+
+[node name="Plate" type="MeshInstance3D" parent="." unique_id=1157512709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 1, 0.035)
+mesh = SubResource("BoxMesh_4n0wr")
+
+[node name="Bar" type="MeshInstance3D" parent="." unique_id=1840955735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.07)
+mesh = SubResource("BoxMesh_4jfjq")
+
+[node name="Glass" type="MeshInstance3D" parent="." unique_id=249034370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0.031)
+mesh = SubResource("QuadMesh_nkaeo")

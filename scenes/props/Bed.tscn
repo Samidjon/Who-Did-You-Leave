@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://resources/materials/wood_varnish.tres" id="1_o0yy6"]
+[ext_resource type="Material" path="res://resources/materials/fabric_b.tres" id="2_jnr5g"]
+[ext_resource type="Material" path="res://resources/materials/fabric_a.tres" id="3_iai6h"]
+[ext_resource type="Material" path="res://resources/materials/enamel.tres" id="4_qu8rk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxwa0"]
+material = ExtResource("1_o0yy6")
+size = Vector3(0.9, 0.3, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_higsg"]
+material = ExtResource("2_jnr5g")
+size = Vector3(0.86, 0.16, 1.94)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n5fp2"]
+material = ExtResource("3_iai6h")
+size = Vector3(0.88, 0.04, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2dm84"]
+material = ExtResource("4_qu8rk")
+size = Vector3(0.6, 0.1, 0.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ru6qs"]
+material = ExtResource("1_o0yy6")
+size = Vector3(0.9, 0.9, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyfix"]
+size = Vector3(0.9, 0.6, 2)
+
+[node name="Bed" type="StaticBody3D" unique_id=1454639928]
+
+[node name="Frame" type="MeshInstance3D" parent="." unique_id=1640576088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("BoxMesh_fxwa0")
+
+[node name="Mattress" type="MeshInstance3D" parent="." unique_id=623748034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 0.02)
+mesh = SubResource("BoxMesh_higsg")
+
+[node name="Blanket" type="MeshInstance3D" parent="." unique_id=1008593585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, 0.35)
+mesh = SubResource("BoxMesh_n5fp2")
+
+[node name="Pillow" type="MeshInstance3D" parent="." unique_id=608246500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.75)
+mesh = SubResource("BoxMesh_2dm84")
+
+[node name="Headboard" type="MeshInstance3D" parent="." unique_id=1886580893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+mesh = SubResource("BoxMesh_ru6qs")
+
+[node name="Col" type="CollisionShape3D" parent="." unique_id=968313529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_tyfix")
